@@ -57,7 +57,7 @@ const Product = () => {
             <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
             <p className='mt-5 w-4/5 text-gray-500'>{productData.description}</p>
             <div className='flex flex-col gap-4 my-8'>
-              <p>Select Sixe</p>
+              <p>Select Size</p>
               <div className='flex gap-2'>
                 {productData.sizes.map((item, idx) => (
                   <button onClick={() => setSize(item)} className={`border py-2 px-4 bg-gray-200 ${item === size ? 'border-orange-500' : ''}`} key={idx}>{item}</button>
