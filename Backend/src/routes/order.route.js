@@ -6,7 +6,7 @@ import authUser from '../middleware/auth.middleware.js';
 const orderRouter = express.Router();
 
 // ADMIN FETURES--->>
-orderRouter.post('list',adminAuth ,allOrders);
+orderRouter.post('/list',adminAuth ,allOrders);
 orderRouter.post('/status',adminAuth ,updateStatus);
 
 // PAYMENT FEATURES-->>
