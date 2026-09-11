@@ -28,6 +28,8 @@ app.get('/', (req, res)=>{
     res.send("API WORKING");
 });
 
-app.listen(port, ()=> {
-    console.log(`Server started on PORT: http://localhost:${port}`)
-});
+// app.listen(port, ()=> {
+//     console.log(`Server started on PORT: http://localhost:${port}`)
+// });
+
+export default app;
