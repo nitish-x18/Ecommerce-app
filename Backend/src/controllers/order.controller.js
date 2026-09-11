@@ -111,6 +111,36 @@ const placeOrderStripe = async (req, res) => {
 
 }
 
+// VERIFY STRIPE--->>
+const verifyStripe = async (req, res) => {
+
+    const { orderId, success, userId } = req.body;
+
+    try {
+        
+        if(success === 'true'){
+            await orderModel.findByIdAndUpdate(orderId, {payment: true});
+            await userModel.findByIdAndUpdate(userId, {cardData: {}})
+
+            res.json({
+                success: true,
+            })
+        } else {
+            await orderModel.findByIdAndDelete(orderId)
+            res.json({
+                success: false
+            })
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success: false,
+            message: error.message
+        })
+    }
+}
+
 // PLACING ORDER USING RAZORPAY METHOD--->>
 const placeOrderRazorpay = async (req, res) => {
 
